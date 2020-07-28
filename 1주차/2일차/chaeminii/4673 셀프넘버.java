@@ -1,7 +1,13 @@
 package baekjoon;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+
 public class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
 		boolean[] arr = new boolean[10000];
 		
 		int result = 0;
@@ -15,9 +21,12 @@ public class Main {
 		
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i] == false) {
-				System.out.println(i + 1);
+				bw.append(String.valueOf(i + 1) + "\n");
 			}
 		}
+		
+		bw.flush();
+		bw.close();
 	}
 
 	static int findSelfNumber(int num) {
